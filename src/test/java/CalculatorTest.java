@@ -13,22 +13,12 @@ public class CalculatorTest {
     
     @Test
     public void addition(){
-        calculator.calculate(20, 20, "+");
-        Assertions.assertEquals(40, calculator.getTotal());
-        calculator.calculate(20, "+");
-        Assertions.assertEquals(60, calculator.getTotal());
-        calculator.calculate(-60 ,"+");
-        Assertions.assertEquals(0, calculator.getTotal());
+        Assertions.assertEquals("40.0", calculator.evaluate("20+20"));
     }
     
     @Test
     public void subtraction(){
-        calculator.calculate(20, 20, "-");
-        Assertions.assertEquals(0, calculator.getTotal());
-        calculator.calculate(27, "-");
-        Assertions.assertEquals(-27, calculator.getTotal());
-        calculator.calculate(-27, "-");
-        Assertions.assertEquals(0, calculator.getTotal());
+        Assertions.assertEquals("-20.0", calculator.evaluate("50-70"));
     }
     
     @Test
@@ -41,6 +31,9 @@ public class CalculatorTest {
     }
     
     @Test
-    public void printouts(){
+    public void complexProblems(){
+        Assertions.assertEquals("25.5", calculator.evaluate("50-100+75.5"));
+        Assertions.assertEquals("36.0", calculator.evaluate("3x5+21"));
+        Assertions.assertEquals("36.0", calculator.evaluate("3x(6+6)"));
     }
 }

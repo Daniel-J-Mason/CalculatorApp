@@ -1,0 +1,42 @@
+.root {
+-fx-background-color: #202124;
+}
+
+.extraButton {
+-fx-text-fill:white;
+-fx-background-color: #70757A;
+}
+
+.numericalButton {
+-fx-text-fill:white;
+-fx-background-color: #424548;
+}
+
+.toggleButton {
+-fx-text-fill:white;
+-fx-background-color: #70757A;
+}
+
+.toggleButton:selected {
+-fx-text-fill:white;
+-fx-background-color: #424548;
+}
+
+.equalButton {
+-fx-background-color: #AECBFA;
+}
+
+.inputArea{
+-fx-text-fill:white;
+-fx-control-inner-background: #303134;
+-fx-alignment: center-right;
+
+}
+
+.inputArea .text {
+-fx-text-alignment: right;
+}
+
+.answerLabel {
+-fx-text-fill:white;
+}
