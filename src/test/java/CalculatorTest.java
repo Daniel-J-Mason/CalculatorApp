@@ -1,6 +1,7 @@
 import com.dev.calculatorapp.Calculator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class CalculatorTest {
@@ -13,12 +14,12 @@ public class CalculatorTest {
     
     @Test
     public void addition(){
-        Assertions.assertEquals("40.0", calculator.evaluate("20+20"));
+        Assertions.assertEquals("40.0", calculator.evaluate("20 + 20"));
     }
     
     @Test
     public void subtraction(){
-        Assertions.assertEquals("-20.0", calculator.evaluate("50-70"));
+        Assertions.assertEquals("-20.0", calculator.evaluate("50 - 70"));
     }
     
     @Test
@@ -27,13 +28,21 @@ public class CalculatorTest {
     
     @Test
     public void division(){
-    
+        Assertions.assertEquals("4.5", calculator.evaluate("9 / 2"));
     }
     
     @Test
     public void complexProblems(){
-        Assertions.assertEquals("25.5", calculator.evaluate("50-100+75.5"));
-        Assertions.assertEquals("36.0", calculator.evaluate("3x5+21"));
-        Assertions.assertEquals("36.0", calculator.evaluate("3x(6+6)"));
+        Assertions.assertEquals("25.5", calculator.evaluate("50 - 100 + 75.5"));
+        Assertions.assertEquals("36.0", calculator.evaluate("3 x 5 + 21"));
+        Assertions.assertEquals("18.0", calculator.evaluate("3 x ((6 + 6) / 2)"));
+    }
+    
+    @Test
+    public void trigonometry(){
+        Assertions.assertEquals(String.valueOf(Math.sin(35)), calculator.evaluate("sin(35)"));
+        
+        calculator.setInRadians(false);
+        Assertions.assertEquals(String.valueOf(Math.sin(Math.toRadians(35))), calculator.evaluate("sin(35)"));
     }
 }

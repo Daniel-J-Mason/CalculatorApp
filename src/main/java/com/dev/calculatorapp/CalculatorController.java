@@ -6,8 +6,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class CalculatorController {
-    public TextArea answerTextArea;
+    public TextArea inputTextArea;
     public Label historyLabel;
     
     public ToggleButton radianDegreeButton;
@@ -34,13 +37,13 @@ public class CalculatorController {
     public Button tenToThePowerOfButton;
     
     public Button naturalLogButton;
-    public Button eToThePowerOf;
-
+    public Button eToThePowerOfButton;
     
-    public void initialize(){
-        answerTextArea.setEditable(false);
+    
+    public void initialize() {
+        inputTextArea.setEditable(true);
         
-        // Set inverse buttons invisible; Could likely write a class to group these
+        // Set inverse buttons invisible; Could likely write a class to group these or a custom Node
         inverseSineButton.setVisible(false);
         inverseSineButton.setDisable(true);
         
@@ -59,44 +62,49 @@ public class CalculatorController {
         tenToThePowerOfButton.setVisible(false);
         tenToThePowerOfButton.setDisable(true);
         
-        eToThePowerOf.setVisible(false);
-        eToThePowerOf.setDisable(true);
+        eToThePowerOfButton.setVisible(false);
+        eToThePowerOfButton.setDisable(true);
     }
     
     private final Calculator calculatorModel = new Calculator();
-
+    
     public void numberInput(ActionEvent actionEvent) {
         Button buttonInstance = (Button) actionEvent.getSource();
-        answerTextArea.setText(answerTextArea.getText() + buttonInstance.getText());
+        inputTextArea.setText(inputTextArea.getText() + buttonInstance.getText());
     }
     
     public void operatorInput(ActionEvent actionEvent) {
         Button buttonInstance = (Button) actionEvent.getSource();
-        if (answerTextArea.getText().equals("")){
-            answerTextArea.setText(historyLabel.getText() + " " + buttonInstance.getText() + " ");
+        if (inputTextArea.getText().equals("")) {
+            inputTextArea.setText(historyLabel.getText() + " " + buttonInstance.getText() + " ");
+        } else if (lastIsOperator()) {
+            int lastCharacterIndex = inputTextArea.getText().length();
+            String operatorRemoved = inputTextArea.getText().substring(0, lastCharacterIndex - 2);
+            inputTextArea.setText(operatorRemoved + buttonInstance.getText() + " ");
         } else {
-            answerTextArea.setText(answerTextArea.getText() + " " + buttonInstance.getText() + " ");
+            inputTextArea.setText(inputTextArea.getText() + " " + buttonInstance.getText() + " ");
         }
     }
     
     public void evaluate(ActionEvent actionEvent) {
-        calculatorModel.evaluate(answerTextArea.getText());
-        historyLabel.setText(String.valueOf(calculatorModel.getTotal()));
-        answerTextArea.setText("");
+        historyLabel.setText(calculatorModel.evaluate(inputTextArea.getText()));
+        inputTextArea.setText("");
     }
     
     public void clearEntry(ActionEvent actionEvent) {
-        if (!(answerTextArea.getText().equals(""))){
-            String current = answerTextArea.getText();
-            answerTextArea.setText(current.substring(0, current.length() - 1));
+        if (!(inputTextArea.getText().equals(""))) {
+            String current = inputTextArea.getText();
+            inputTextArea.setText(current.substring(0, current.length() - 1));
         }
     }
     
     public void toggleRadianDegree(ActionEvent actionEvent) {
         if (radianDegreeButton.isSelected()) {
             radianDegreeButton.setText("Degrees");
+            calculatorModel.setInRadians(false);
         } else {
             radianDegreeButton.setText("Radians");
+            calculatorModel.setInRadians(true);
         }
     }
     
@@ -107,7 +115,7 @@ public class CalculatorController {
         invertButton(inverseButton.isSelected(), squareRootButton, squaredButton);
         invertButton(inverseButton.isSelected(), factorialButton, toThePowerOfButton);
         invertButton(inverseButton.isSelected(), logButton, tenToThePowerOfButton);
-        invertButton(inverseButton.isSelected(), naturalLogButton, eToThePowerOf);
+        invertButton(inverseButton.isSelected(), naturalLogButton, eToThePowerOfButton);
     }
     
     private void invertButton(boolean isInverted, Button defaultButton, Button alternativeButton) {
@@ -117,18 +125,37 @@ public class CalculatorController {
         alternativeButton.setDisable(!isInverted);
     }
     
+    private boolean lastIsOperator() {
+        //If last character is an operator
+        Pattern pattern = Pattern.compile(".?[x+/\\-^] $");
+        Matcher matcher = pattern.matcher(inputTextArea.getText());
+        return matcher.find();
+    }
+    
     public void parentheticOperator(ActionEvent actionEvent) {
-        String userInput = answerTextArea.getText();
+        String userInput = inputTextArea.getText();
         Button buttonInstance = (Button) actionEvent.getSource();
         
-        if (answerTextArea.getText().equals("")){
-            answerTextArea.setText(buttonInstance.getText() + "(" + historyLabel.getText() + ")");
+        if (inputTextArea.getText().equals("")) {
+            inputTextArea.setText(buttonInstance.getText() + "(" + historyLabel.getText() + ")");
+        } else if (lastIsOperator()) {
+            inputTextArea.setText(userInput + buttonInstance.getText() + "()");
         } else {
-            answerTextArea.setText(buttonInstance.getText() + "(" + userInput + ")");
+            inputTextArea.setText(buttonInstance.getText() + "(" + userInput + ")");
         }
     }
     
     public void exponentialOperator(ActionEvent actionEvent) {
+    }
     
+    public void copyAnswerToInput(ActionEvent actionEvent) {
+    }
+    
+    public void clearInputArea(ActionEvent actionEvent) {
+        if (inputTextArea.getText().equals("")) {
+            historyLabel.setText("");
+        } else {
+            inputTextArea.setText("");
+        }
     }
 }

@@ -26,6 +26,11 @@
 -fx-background-color: #AECBFA;
 }
 
+.clearButton{
+-fx-text-fill: white;
+-fx-background-color:    #ff4545;
+}
+
 .inputArea{
 -fx-text-fill:white;
 -fx-control-inner-background: #303134;
