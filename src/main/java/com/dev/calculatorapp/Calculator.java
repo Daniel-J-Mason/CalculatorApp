@@ -24,6 +24,12 @@ public class Calculator {
         functions.add("sin");
         functions.add("tan");
         functions.add("cos");
+        functions.add("asin");
+        functions.add("acos");
+        functions.add("atan");
+        functions.add("log");
+        functions.add("ln");
+        functions.add("!");
         functions.add("√");
         
         for (String function : functions) {
@@ -37,12 +43,12 @@ public class Calculator {
     
     public String evaluate(String equation) {
         ArrayList<String> postfixArray = createPostfixArray(equation);
-        
+        System.out.println(postfixArray);
         try {
             while (postfixArray.size() > 1) {
                 for (int i = 0; i < postfixArray.size(); i++) {
                     if (isAFunction(postfixArray.get(i))) {
-                        String operatorOne = postfixArray.get(i - 1);
+                        String operatorOne =  postfixArray.get(i - 1);
                         String function = postfixArray.get(i);
                         
                         String result = calculate(operatorOne, function);
@@ -55,8 +61,7 @@ public class Calculator {
                         String operatorOne = postfixArray.get(i - 2);
                         String operatorTwo = postfixArray.get(i - 1);
                         String operand = postfixArray.get(i);
-    
-                        System.out.println(operatorOne + operatorTwo + operand);
+                        
                         String result = calculate(operatorOne, operatorTwo, operand);
                         
                         postfixArray.remove(operatorTwo);
@@ -83,10 +88,15 @@ public class Calculator {
         
         //TODO: Try catch null exception
         
-        StringTokenizer tokens = new StringTokenizer(equation, "[ ()]", true);
+        StringTokenizer tokens = new StringTokenizer(equation, "[ ()!]", true);
         while (tokens.hasMoreTokens()) {
             String currentToken = tokens.nextToken();
+            System.out.println(currentToken);
             if (isANumber(currentToken)) {
+                postFixEquation.add(currentToken);
+            } else if (isASpecialNumber(currentToken)) {
+                postFixEquation.add(getSpecialNumberValue(currentToken));
+            } else if (currentToken.equals("!")){ // Create separate method if multiple unary postfix functions
                 postFixEquation.add(currentToken);
             } else if (isAFunction(currentToken)) {
                 operationStack.add(currentToken);
@@ -119,12 +129,12 @@ public class Calculator {
                 operationStack.remove("(");
                 operationStack.remove(")");
                 
-                
-                //TODO: replace last operator
-                String modifiedLastOperator = operationStack.get(operationStack.size() - 1);
-                if (isAFunction(modifiedLastOperator)) {
-                    postFixEquation.add(modifiedLastOperator);
-                    operationStack.remove(modifiedLastOperator);
+                if (!operationStack.isEmpty()) {
+                    String modifiedLastOperator = operationStack.get(operationStack.size() - 1);
+                    if (isAFunction(modifiedLastOperator)) {
+                        postFixEquation.add(modifiedLastOperator);
+                        operationStack.remove(modifiedLastOperator);
+                    }
                 }
             }
         }
@@ -181,6 +191,12 @@ public class Calculator {
             case "√": //Square Root
                 result = String.valueOf(Math.sqrt(first));
                 break;
+            case "log":
+                result = String.valueOf(Math.log10(first));
+                break;
+            case "ln":
+                result = String.valueOf(Math.log(first));
+                break;
         }
         
         //Account for radians
@@ -197,13 +213,37 @@ public class Calculator {
             case "tan":
                 result = String.valueOf(Math.tan(first));
                 break;
+            case "asin":
+                result = String.valueOf(Math.asin(first));
+                break;
+            case "acos":
+                result = String.valueOf(Math.acos(first));
+                break;
+            case "atan":
+                result = String.valueOf(Math.atan(first));
+                break;
         }
         return result;
     }
     
     private boolean isANumber(String equationToken) {
-        Pattern simpleNumber = Pattern.compile("-?\\d+.?\\d*");
+        Pattern simpleNumber = Pattern.compile("-?\\d.?\\d*|-?\\d*.?\\d+");
         return simpleNumber.matcher(equationToken).matches();
+    }
+    
+    private boolean isASpecialNumber(String equationToken) {
+        return equationToken.equals("e") ||
+                equationToken.equals("π");
+    }
+    
+    private String getSpecialNumberValue(String equationToken) {
+        switch (equationToken){
+            case "π":
+                return String.valueOf(Math.PI);
+            case "e":
+                return String.valueOf(Math.E);
+        }
+        return null;
     }
     
     private boolean isAFunction(String equationToken) {

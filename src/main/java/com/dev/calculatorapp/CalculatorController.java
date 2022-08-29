@@ -41,7 +41,7 @@ public class CalculatorController {
     
     
     public void initialize() {
-        inputTextArea.setEditable(true);
+        inputTextArea.setEditable(false);
         
         // Set inverse buttons invisible; Could likely write a class to group these or a custom Node
         inverseSineButton.setVisible(false);
@@ -71,6 +71,10 @@ public class CalculatorController {
     public void numberInput(ActionEvent actionEvent) {
         Button buttonInstance = (Button) actionEvent.getSource();
         inputTextArea.setText(inputTextArea.getText() + buttonInstance.getText());
+    }
+    
+    public void specialNumberInput(ActionEvent actionEvent) {
+        Button buttonInstance = (Button) actionEvent.getSource();
     }
     
     public void operatorInput(ActionEvent actionEvent) {
@@ -146,6 +150,7 @@ public class CalculatorController {
     }
     
     public void exponentialOperator(ActionEvent actionEvent) {
+    
     }
     
     public void copyAnswerToInput(ActionEvent actionEvent) {
@@ -156,6 +161,16 @@ public class CalculatorController {
             historyLabel.setText("");
         } else {
             inputTextArea.setText("");
+        }
+    }
+    
+    public void factorial(ActionEvent actionEvent) {
+        String userInput = inputTextArea.getText();
+    
+        if (inputTextArea.getText().equals("")) {
+            inputTextArea.setText(historyLabel.getText() + "!");
+        } else if (!lastIsOperator()) {
+            inputTextArea.setText(userInput + "!");
         }
     }
 }

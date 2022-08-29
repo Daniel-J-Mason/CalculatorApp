@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="760778be-bebb-47cc-8319-a25029814b03" name="Changes" comment="Convert Project to Dijkstras Shuttle Yard algorithm for converting String equations to postfix format">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+    <list default="true" id="760778be-bebb-47cc-8319-a25029814b03" name="Changes" comment="Add basic trig functions&#10;Add methods for radians/degrees&#10;Add extra row of buttons&#10;Add to the simple tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/calculatorapp/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/calculatorapp/Calculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/calculatorapp/CalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/calculatorapp/CalculatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/dev/calculatorapp/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/dev/calculatorapp/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CalculatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +51,7 @@
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.CalculatorTest">
+  <component name="RunManager" selected="Application.CalculatorApplication">
     <configuration name="CalculatorApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dev.calculatorapp.CalculatorApplication" />
       <module name="CalculatorApp" />
@@ -78,8 +76,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CalculatorTest" />
         <item itemvalue="Application.CalculatorApplication" />
+        <item itemvalue="JUnit.CalculatorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -106,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660612209226</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add basic trig functions&#10;Add methods for radians/degrees&#10;Add extra row of buttons&#10;Add to the simple tests">
+      <created>1661247510161</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661247510161</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,6 +128,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update Calculator Model and Create method to calculate string patterns directly" />
     <MESSAGE value="Convert Project to Dijkstras Shuttle Yard algorithm for converting String equations to postfix format" />
-    <option name="LAST_COMMIT_MESSAGE" value="Convert Project to Dijkstras Shuttle Yard algorithm for converting String equations to postfix format" />
+    <MESSAGE value="Add basic trig functions&#10;Add methods for radians/degrees&#10;Add extra row of buttons&#10;Add to the simple tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add basic trig functions&#10;Add methods for radians/degrees&#10;Add extra row of buttons&#10;Add to the simple tests" />
   </component>
 </project>

@@ -36,6 +36,7 @@ public class CalculatorTest {
         Assertions.assertEquals("25.5", calculator.evaluate("50 - 100 + 75.5"));
         Assertions.assertEquals("36.0", calculator.evaluate("3 x 5 + 21"));
         Assertions.assertEquals("18.0", calculator.evaluate("3 x ((6 + 6) / 2)"));
+        Assertions.assertEquals("2.23606797749979", calculator.evaluate("√((((3 + 2)! / 2) / 60) + 4)"));
     }
     
     @Test
