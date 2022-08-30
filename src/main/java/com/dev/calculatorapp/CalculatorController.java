@@ -30,8 +30,9 @@ public class CalculatorController {
     public Button squareRootButton;
     public Button squaredButton;
     
-    public Button factorialButton;
     public Button toThePowerOfButton;
+    public Button factorialButton;
+    
     
     public Button logButton;
     public Button tenToThePowerOfButton;
@@ -39,6 +40,7 @@ public class CalculatorController {
     public Button naturalLogButton;
     public Button eToThePowerOfButton;
     
+    private final Calculator calculatorModel = new Calculator();
     
     public void initialize() {
         inputTextArea.setEditable(false);
@@ -56,8 +58,8 @@ public class CalculatorController {
         squaredButton.setVisible(false);
         squaredButton.setDisable(true);
         
-        toThePowerOfButton.setVisible(false);
-        toThePowerOfButton.setDisable(true);
+        factorialButton.setVisible(false);
+        factorialButton.setDisable(true);
         
         tenToThePowerOfButton.setVisible(false);
         tenToThePowerOfButton.setDisable(true);
@@ -66,15 +68,9 @@ public class CalculatorController {
         eToThePowerOfButton.setDisable(true);
     }
     
-    private final Calculator calculatorModel = new Calculator();
-    
     public void numberInput(ActionEvent actionEvent) {
         Button buttonInstance = (Button) actionEvent.getSource();
         inputTextArea.setText(inputTextArea.getText() + buttonInstance.getText());
-    }
-    
-    public void specialNumberInput(ActionEvent actionEvent) {
-        Button buttonInstance = (Button) actionEvent.getSource();
     }
     
     public void operatorInput(ActionEvent actionEvent) {
@@ -90,6 +86,46 @@ public class CalculatorController {
         }
     }
     
+    public void parentheticOperator(ActionEvent actionEvent) {
+        String userInput = inputTextArea.getText();
+        Button buttonInstance = (Button) actionEvent.getSource();
+        
+        if (inputTextArea.getText().equals("")) {
+            inputTextArea.setText(buttonInstance.getText() + "(" + historyLabel.getText() + ")");
+        } else if (lastIsOperator()) {
+            inputTextArea.setText(userInput + buttonInstance.getText() + "()");
+        } else {
+            inputTextArea.setText(buttonInstance.getText() + "(" + userInput + ")");
+        }
+    }
+    
+    public void exponentialOperator(ActionEvent actionEvent) {
+        Button buttonInstance = (Button) actionEvent.getSource();
+        String buttonText = buttonInstance.getText();
+        
+        switch (buttonText) {
+            case "x^2":
+                inputTextArea.setText("(" + inputTextArea.getText() + ") ^ 2");
+                break;
+            case "10^x":
+                inputTextArea.setText("10 ^ (" + inputTextArea.getText() + ")");
+                break;
+            case "e^x":
+                inputTextArea.setText("e ^ (" + inputTextArea.getText() + ")");
+                break;
+        }
+    }
+    
+    public void factorial(ActionEvent actionEvent) {
+        String userInput = inputTextArea.getText();
+        
+        if (inputTextArea.getText().equals("")) {
+            inputTextArea.setText(historyLabel.getText() + "!");
+        } else if (!lastIsOperator()) {
+            inputTextArea.setText(userInput + "!");
+        }
+    }
+    
     public void evaluate(ActionEvent actionEvent) {
         historyLabel.setText(calculatorModel.evaluate(inputTextArea.getText()));
         inputTextArea.setText("");
@@ -100,6 +136,18 @@ public class CalculatorController {
             String current = inputTextArea.getText();
             inputTextArea.setText(current.substring(0, current.length() - 1));
         }
+    }
+    
+    public void clearInputArea(ActionEvent actionEvent) {
+        if (inputTextArea.getText().equals("")) {
+            historyLabel.setText("");
+        } else {
+            inputTextArea.setText("");
+        }
+    }
+    
+    public void copyAnswerToInput(ActionEvent actionEvent) {
+        inputTextArea.setText(inputTextArea.getText() + historyLabel.getText());
     }
     
     public void toggleRadianDegree(ActionEvent actionEvent) {
@@ -117,7 +165,7 @@ public class CalculatorController {
         invertButton(inverseButton.isSelected(), cosineButton, inverseCosineButton);
         invertButton(inverseButton.isSelected(), tangentButton, inverseTangentButton);
         invertButton(inverseButton.isSelected(), squareRootButton, squaredButton);
-        invertButton(inverseButton.isSelected(), factorialButton, toThePowerOfButton);
+        invertButton(inverseButton.isSelected(), toThePowerOfButton, factorialButton);
         invertButton(inverseButton.isSelected(), logButton, tenToThePowerOfButton);
         invertButton(inverseButton.isSelected(), naturalLogButton, eToThePowerOfButton);
     }
@@ -136,41 +184,4 @@ public class CalculatorController {
         return matcher.find();
     }
     
-    public void parentheticOperator(ActionEvent actionEvent) {
-        String userInput = inputTextArea.getText();
-        Button buttonInstance = (Button) actionEvent.getSource();
-        
-        if (inputTextArea.getText().equals("")) {
-            inputTextArea.setText(buttonInstance.getText() + "(" + historyLabel.getText() + ")");
-        } else if (lastIsOperator()) {
-            inputTextArea.setText(userInput + buttonInstance.getText() + "()");
-        } else {
-            inputTextArea.setText(buttonInstance.getText() + "(" + userInput + ")");
-        }
-    }
-    
-    public void exponentialOperator(ActionEvent actionEvent) {
-    
-    }
-    
-    public void copyAnswerToInput(ActionEvent actionEvent) {
-    }
-    
-    public void clearInputArea(ActionEvent actionEvent) {
-        if (inputTextArea.getText().equals("")) {
-            historyLabel.setText("");
-        } else {
-            inputTextArea.setText("");
-        }
-    }
-    
-    public void factorial(ActionEvent actionEvent) {
-        String userInput = inputTextArea.getText();
-    
-        if (inputTextArea.getText().equals("")) {
-            inputTextArea.setText(historyLabel.getText() + "!");
-        } else if (!lastIsOperator()) {
-            inputTextArea.setText(userInput + "!");
-        }
-    }
 }

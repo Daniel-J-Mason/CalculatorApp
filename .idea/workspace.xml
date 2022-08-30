@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="760778be-bebb-47cc-8319-a25029814b03" name="Changes" comment="Add basic trig functions&#10;Add methods for radians/degrees&#10;Add extra row of buttons&#10;Add to the simple tests">
+    <list default="true" id="760778be-bebb-47cc-8319-a25029814b03" name="Changes" comment="Complete calculator functionality&#10;Extend testing to arithmetic and trig operations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/calculatorapp/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/calculatorapp/Calculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/calculatorapp/CalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/calculatorapp/CalculatorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CalculatorTest.java" afterDir="false" />
@@ -42,6 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowDB Browser.ShowToolbar": "false",
     "dart.analysis.tool.window.visible": "false",
     "last_opened_file_path": "/opt/scenebuilder/bin/SceneBuilder",
     "project.structure.last.edited": "Problems",
@@ -51,7 +53,7 @@
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.CalculatorApplication">
+  <component name="RunManager" selected="JUnit.CalculatorTest">
     <configuration name="CalculatorApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dev.calculatorapp.CalculatorApplication" />
       <module name="CalculatorApp" />
@@ -61,6 +63,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculatorTest$trigonometry" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalculatorApp" />
+      <option name="PACKAGE_NAME" value="CalculatorTest" />
+      <option name="MAIN_CLASS_NAME" value="CalculatorTest$trigonometry" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -76,8 +87,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CalculatorApplication" />
         <item itemvalue="JUnit.CalculatorTest" />
+        <item itemvalue="Application.CalculatorApplication" />
+        <item itemvalue="JUnit.CalculatorTest$trigonometry" />
       </list>
     </recent_temporary>
   </component>
@@ -111,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661247510161</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add special numbers pi and e.&#10;Add inverse functions, natural log, factorial">
+      <created>1661765953561</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1661765953561</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,6 +148,8 @@
     <MESSAGE value="Update Calculator Model and Create method to calculate string patterns directly" />
     <MESSAGE value="Convert Project to Dijkstras Shuttle Yard algorithm for converting String equations to postfix format" />
     <MESSAGE value="Add basic trig functions&#10;Add methods for radians/degrees&#10;Add extra row of buttons&#10;Add to the simple tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add basic trig functions&#10;Add methods for radians/degrees&#10;Add extra row of buttons&#10;Add to the simple tests" />
+    <MESSAGE value="Add special numbers pi and e.&#10;Add inverse functions, natural log, factorial" />
+    <MESSAGE value="Complete calculator functionality&#10;Extend testing to arithmetic and trig operations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete calculator functionality&#10;Extend testing to arithmetic and trig operations" />
   </component>
 </project>

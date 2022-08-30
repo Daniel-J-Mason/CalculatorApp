@@ -9,9 +9,6 @@ public class Calculator {
     
     private final HashMap<String, Integer> orderOfOperations = new HashMap<>();
     private final ArrayList<String> functions = new ArrayList<>();
-    
-    private float total;
-    
     private Boolean inRadians;
     
     public Calculator() {
@@ -37,13 +34,10 @@ public class Calculator {
         }
         
         inRadians = true;
-        
-        total = 0;
     }
     
     public String evaluate(String equation) {
         ArrayList<String> postfixArray = createPostfixArray(equation);
-        System.out.println(postfixArray);
         try {
             while (postfixArray.size() > 1) {
                 for (int i = 0; i < postfixArray.size(); i++) {
@@ -51,7 +45,7 @@ public class Calculator {
                         String operatorOne =  postfixArray.get(i - 1);
                         String function = postfixArray.get(i);
                         
-                        String result = calculate(operatorOne, function);
+                        String result = unaryOperation(operatorOne, function);
                         
                         postfixArray.remove(operatorOne);
                         postfixArray.remove(function);
@@ -62,7 +56,7 @@ public class Calculator {
                         String operatorTwo = postfixArray.get(i - 1);
                         String operand = postfixArray.get(i);
                         
-                        String result = calculate(operatorOne, operatorTwo, operand);
+                        String result = binaryOperation(operatorOne, operatorTwo, operand);
                         
                         postfixArray.remove(operatorTwo);
                         postfixArray.remove(operatorOne);
@@ -79,6 +73,10 @@ public class Calculator {
         }
     }
     
+    public void setInRadians(Boolean inRadians) {
+        this.inRadians = inRadians;
+    }
+    
     
     // Shunting yard algorithm
     public ArrayList<String> createPostfixArray(String equation) throws IndexOutOfBoundsException {
@@ -91,7 +89,6 @@ public class Calculator {
         StringTokenizer tokens = new StringTokenizer(equation, "[ ()!]", true);
         while (tokens.hasMoreTokens()) {
             String currentToken = tokens.nextToken();
-            System.out.println(currentToken);
             if (isANumber(currentToken)) {
                 postFixEquation.add(currentToken);
             } else if (isASpecialNumber(currentToken)) {
@@ -148,7 +145,7 @@ public class Calculator {
         return postFixEquation;
     }
     
-    public String calculate(String x, String y, String operator) {
+    private String binaryOperation(String x, String y, String operator) {
         double first = Double.parseDouble(x);
         double second = Double.parseDouble(y);
         
@@ -174,7 +171,7 @@ public class Calculator {
         return result;
     }
     
-    public String calculate(String x, String function) {
+    private String unaryOperation(String x, String function) {
         double first = Double.parseDouble(x);
         
         String result = null;
@@ -249,17 +246,4 @@ public class Calculator {
     private boolean isAFunction(String equationToken) {
         return functions.contains(equationToken);
     }
-    
-    public void setInRadians(Boolean inRadians) {
-        this.inRadians = inRadians;
-    }
-    
-    public float getTotal() {
-        return total;
-    }
-    
-    public void setTotal(float total) {
-        this.total = total;
-    }
-    
 }
