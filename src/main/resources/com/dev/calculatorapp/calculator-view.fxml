@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dev.calculatorapp.CalculatorController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="historyLabel" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" styleClass="answerLabel" stylesheets="@style.css" />
+   <TextArea fx:id="inputTextArea" prefHeight="13.0" prefWidth="400.0" styleClass="inputArea" stylesheets="@style.css">
+      <cursor>
+         <Cursor fx:constant="DEFAULT" />
+      </cursor>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets></TextArea>
+   <GridPane hgap="4.0" vgap="4.0">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <ToggleButton fx:id="radianDegreeButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#toggleRadianDegree" styleClass="toggleButton" stylesheets="@style.css" text="Radians" GridPane.columnIndex="1" />
+         <Button fx:id="clearEntryButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearEntry" styleClass="extraButton" stylesheets="@style.css" text="CE" GridPane.columnIndex="2" />
+         <ToggleButton fx:id="inverseButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#toggleInverse" styleClass="toggleButton" stylesheets="@style.css" text="Inv" GridPane.rowIndex="1" />
+         <Button fx:id="sineButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#parentheticOperator" styleClass="extraButton" stylesheets="@style.css" text="sin" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <Button fx:id="cosineButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#parentheticOperator" styleClass="extraButton" stylesheets="@style.css" text="cos" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         <Button fx:id="tangentButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#parentheticOperator" styleClass="extraButton" stylesheets="@style.css" text="tan" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         <Button fx:id="squareRootButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#parentheticOperator" styleClass="extraButton" stylesheets="@style.css" text="√" GridPane.rowIndex="2" />
+         <Button fx:id="toThePowerOfButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operatorInput" styleClass="extraButton" stylesheets="@style.css" text="^" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <Button fx:id="logButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#parentheticOperator" styleClass="extraButton" stylesheets="@style.css" text="log" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         <Button fx:id="naturalLogButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#parentheticOperator" styleClass="extraButton" stylesheets="@style.css" text="ln" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="extraButton" stylesheets="@style.css" text="π" GridPane.rowIndex="3" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="extraButton" stylesheets="@style.css" text="e" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="extraButton" text="(" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="extraButton" text=")" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="numericalButton" stylesheets="@style.css" text="7" GridPane.rowIndex="4" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="numericalButton" stylesheets="@style.css" text="8" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="numericalButton" stylesheets="@style.css" text="9" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operatorInput" styleClass="extraButton" stylesheets="@style.css" text="/" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="numericalButton" stylesheets="@style.css" text="4" GridPane.rowIndex="5" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="numericalButton" stylesheets="@style.css" text="5" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="numericalButton" stylesheets="@style.css" text="6" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operatorInput" styleClass="extraButton" stylesheets="@style.css" text="x" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="numericalButton" stylesheets="@style.css" text="1" GridPane.rowIndex="6" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="numericalButton" stylesheets="@style.css" text="2" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="numericalButton" stylesheets="@style.css" text="3" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operatorInput" styleClass="extraButton" stylesheets="@style.css" text="-" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="numericalButton" stylesheets="@style.css" text="0" GridPane.rowIndex="7" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberInput" styleClass="numericalButton" stylesheets="@style.css" text="." GridPane.columnIndex="1" GridPane.rowIndex="7" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#evaluate" styleClass="equalButton" stylesheets="@style.css" text="=" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#operatorInput" styleClass="extraButton" stylesheets="@style.css" text="+" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+         <Button fx:id="inverseSineButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#parentheticOperator" styleClass="extraButton" stylesheets="@style.css" text="asin" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <Button fx:id="inverseCosineButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#parentheticOperator" styleClass="extraButton" stylesheets="@style.css" text="acos" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         <Button fx:id="inverseTangentButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#parentheticOperator" styleClass="extraButton" stylesheets="@style.css" text="atan" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         <Button fx:id="squaredButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#exponentialOperator" styleClass="extraButton" stylesheets="@style.css" text="x^2" visible="false" GridPane.rowIndex="2" />
+         <Button fx:id="factorialButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#factorial" styleClass="extraButton" stylesheets="@style.css" text="x!" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <Button fx:id="tenToThePowerOfButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#exponentialOperator" styleClass="extraButton" stylesheets="@style.css" text="10^x" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         <Button fx:id="eToThePowerOfButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#exponentialOperator" styleClass="extraButton" stylesheets="@style.css" text="e^x" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#copyAnswerToInput" styleClass="extraButton" text="Ans" />
+         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearInputArea" styleClass="clearButton" text="C" GridPane.columnIndex="3" />
+      </children>
+   </GridPane>
+</VBox>
