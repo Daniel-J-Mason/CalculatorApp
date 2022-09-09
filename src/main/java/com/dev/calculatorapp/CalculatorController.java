@@ -134,7 +134,11 @@ public class CalculatorController {
     public void clearEntry(ActionEvent actionEvent) {
         if (!(inputTextArea.getText().equals(""))) {
             String current = inputTextArea.getText();
-            inputTextArea.setText(current.substring(0, current.length() - 1));
+            if (inputTextArea.getText().substring(current.length() -1).equals(" ")){
+                inputTextArea.setText(current.substring(0, current.length() - 2));
+            } else {
+                inputTextArea.setText(current.substring(0, current.length() - 1));
+            }
         }
     }
     

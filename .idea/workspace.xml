@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="760778be-bebb-47cc-8319-a25029814b03" name="Changes" comment="Complete calculator functionality&#10;Extend testing to arithmetic and trig operations">
+      <change afterPath="$PROJECT_DIR$/src/test/java/CalculatorGUITest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/com/dev/calculatorapp/calculator-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/com/dev/calculatorapp/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/calculatorapp/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/calculatorapp/Calculator.java" afterDir="false" />
@@ -45,15 +49,23 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ToolWindowDB Browser.ShowToolbar": "false",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/opt/scenebuilder/bin/SceneBuilder",
-    "project.structure.last.edited": "Problems",
+    "last_opened_file_path": "/home/kal/IdeaProjects/GitProjects/CalculatorApp/src/test",
+    "project.structure.last.edited": "Facets",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2689655",
     "settings.editor.selected.configurable": "preferences.sourceCode.Java",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.CalculatorTest">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.dev.calculatorapp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CalculatorGUITest">
     <configuration name="CalculatorApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dev.calculatorapp.CalculatorApplication" />
       <module name="CalculatorApp" />
@@ -67,11 +79,80 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CalculatorTest$trigonometry" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Scratch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dev.calculatorapp.Scratch" />
       <module name="CalculatorApp" />
-      <option name="PACKAGE_NAME" value="CalculatorTest" />
-      <option name="MAIN_CLASS_NAME" value="CalculatorTest$trigonometry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dev.calculatorapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculatorGUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalculatorApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CalculatorGUITest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="--add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculatorGUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalculatorApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CalculatorGUITest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculatorGUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalculatorApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CalculatorGUITest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculatorGUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalculatorApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CalculatorGUITest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="--add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculatorGUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalculatorApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CalculatorGUITest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="--add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculatorGUITest.degreesButton" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalculatorApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CalculatorGUITest" />
+      <option name="METHOD_NAME" value="degreesButton(java.lang.String,java.lang.String,org.testfx.api.FxRobot)" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -85,11 +166,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.CalculatorApplication" />
+      <item itemvalue="Application.Scratch" />
+      <item itemvalue="JUnit.CalculatorGUITest.degreesButton" />
+      <item itemvalue="JUnit.CalculatorGUITest" />
+      <item itemvalue="JUnit.CalculatorTest" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CalculatorTest" />
+        <item itemvalue="JUnit.CalculatorGUITest" />
         <item itemvalue="Application.CalculatorApplication" />
-        <item itemvalue="JUnit.CalculatorTest$trigonometry" />
+        <item itemvalue="JUnit.CalculatorTest" />
+        <item itemvalue="Application.Scratch" />
+        <item itemvalue="JUnit.CalculatorGUITest.degreesButton" />
       </list>
     </recent_temporary>
   </component>
@@ -130,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661765953561</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Complete calculator functionality&#10;Extend testing to arithmetic and trig operations">
+      <created>1661831192027</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1661831192027</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,5 +248,13 @@
     <MESSAGE value="Add special numbers pi and e.&#10;Add inverse functions, natural log, factorial" />
     <MESSAGE value="Complete calculator functionality&#10;Extend testing to arithmetic and trig operations" />
     <option name="LAST_COMMIT_MESSAGE" value="Complete calculator functionality&#10;Extend testing to arithmetic and trig operations" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CalculatorApp$CalculatorTest.ic" NAME="CalculatorTest Coverage Results" MODIFIED="1662517880744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/CalculatorApp$CalculatorGUITest.ic" NAME="CalculatorGUITest Coverage Results" MODIFIED="1662518243499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/CalculatorApp$CalculatorGUITest__1_.ic" NAME="CalculatorGUITest (1) Coverage Results" MODIFIED="1661990038084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/CalculatorApp$CalculatorApplication.ic" NAME="CalculatorApplication Coverage Results" MODIFIED="1662518062339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.dev.calculatorapp.*</FILTER>
+    </SUITE>
   </component>
 </project>

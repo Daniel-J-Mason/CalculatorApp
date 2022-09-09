@@ -66,7 +66,8 @@ public class Calculator {
                     }
                 }
             }
-            return postfixArray.get(0);
+            //This reformats the number in case something like 0123 is evaluated with no functions/operators
+            return String.valueOf(Double.parseDouble(postfixArray.get(0)));
         } catch (IndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
             return "Error!";
