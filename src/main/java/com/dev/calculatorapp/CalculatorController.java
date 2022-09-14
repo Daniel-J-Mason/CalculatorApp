@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,31 +42,16 @@ public class CalculatorController {
     public Button eToThePowerOfButton;
     
     private final Calculator calculatorModel = new Calculator();
+    private final ArrayList<Button> primaryButtonGroup = new ArrayList<>();
+    private final ArrayList<Button> secondaryButtonGroup = new ArrayList<>();
     
     public void initialize() {
         inputTextArea.setEditable(false);
+        setPrimaryButtonGroup();
+        setSecondaryButtonGroup();
         
         // Set inverse buttons invisible; Could likely write a class to group these or a custom Node
-        inverseSineButton.setVisible(false);
-        inverseSineButton.setDisable(true);
-        
-        inverseCosineButton.setVisible(false);
-        inverseCosineButton.setDisable(true);
-        
-        inverseTangentButton.setVisible(false);
-        inverseTangentButton.setDisable(true);
-        
-        squaredButton.setVisible(false);
-        squaredButton.setDisable(true);
-        
-        factorialButton.setVisible(false);
-        factorialButton.setDisable(true);
-        
-        tenToThePowerOfButton.setVisible(false);
-        tenToThePowerOfButton.setDisable(true);
-        
-        eToThePowerOfButton.setVisible(false);
-        eToThePowerOfButton.setDisable(true);
+        secondaryButtonGroup.forEach(this::hideButton);
     }
     
     public void numberInput(ActionEvent actionEvent) {
@@ -102,18 +88,17 @@ public class CalculatorController {
     public void exponentialOperator(ActionEvent actionEvent) {
         Button buttonInstance = (Button) actionEvent.getSource();
         String buttonText = buttonInstance.getText();
-        
+    
         switch (buttonText) {
-            case "x^2":
-                inputTextArea.setText("(" + inputTextArea.getText() + ") ^ 2");
-                break;
-            case "10^x":
-                inputTextArea.setText("10 ^ (" + inputTextArea.getText() + ")");
-                break;
-            case "e^x":
-                inputTextArea.setText("e ^ (" + inputTextArea.getText() + ")");
-                break;
+            case "x^2" -> inputTextArea.setText("(" + inputTextArea.getText() + ") ^ 2");
+            case "10^x" -> inputTextArea.setText("10 ^ (" + inputTextArea.getText() + ")");
+            case "e^x" -> inputTextArea.setText("e ^ (" + inputTextArea.getText() + ")");
         }
+    }
+    
+    public void evaluate(ActionEvent actionEvent) {
+        historyLabel.setText(calculatorModel.evaluate(inputTextArea.getText()));
+        inputTextArea.setText("");
     }
     
     public void factorial(ActionEvent actionEvent) {
@@ -126,9 +111,14 @@ public class CalculatorController {
         }
     }
     
-    public void evaluate(ActionEvent actionEvent) {
-        historyLabel.setText(calculatorModel.evaluate(inputTextArea.getText()));
-        inputTextArea.setText("");
+    public void toggleInverse(ActionEvent actionEvent) {
+        if (inverseButton.isSelected()) {
+            primaryButtonGroup.forEach(this::hideButton);
+            secondaryButtonGroup.forEach(this::showButton);
+        } else {
+            primaryButtonGroup.forEach(this::showButton);
+            secondaryButtonGroup.forEach(this::hideButton);
+        }
     }
     
     public void clearEntry(ActionEvent actionEvent) {
@@ -150,10 +140,6 @@ public class CalculatorController {
         }
     }
     
-    public void copyAnswerToInput(ActionEvent actionEvent) {
-        inputTextArea.setText(inputTextArea.getText() + historyLabel.getText());
-    }
-    
     public void toggleRadianDegree(ActionEvent actionEvent) {
         if (radianDegreeButton.isSelected()) {
             radianDegreeButton.setText("Degrees");
@@ -164,21 +150,38 @@ public class CalculatorController {
         }
     }
     
-    public void toggleInverse(ActionEvent actionEvent) {
-        invertButton(inverseButton.isSelected(), sineButton, inverseSineButton);
-        invertButton(inverseButton.isSelected(), cosineButton, inverseCosineButton);
-        invertButton(inverseButton.isSelected(), tangentButton, inverseTangentButton);
-        invertButton(inverseButton.isSelected(), squareRootButton, squaredButton);
-        invertButton(inverseButton.isSelected(), toThePowerOfButton, factorialButton);
-        invertButton(inverseButton.isSelected(), logButton, tenToThePowerOfButton);
-        invertButton(inverseButton.isSelected(), naturalLogButton, eToThePowerOfButton);
+    public void copyAnswerToInput(ActionEvent actionEvent) {
+        inputTextArea.setText(inputTextArea.getText() + historyLabel.getText());
     }
     
-    private void invertButton(boolean isInverted, Button defaultButton, Button alternativeButton) {
-        defaultButton.setVisible(!isInverted);
-        defaultButton.setDisable(isInverted);
-        alternativeButton.setVisible(isInverted);
-        alternativeButton.setDisable(!isInverted);
+    private void setPrimaryButtonGroup(){
+        primaryButtonGroup.add(sineButton);
+        primaryButtonGroup.add(cosineButton);
+        primaryButtonGroup.add(tangentButton);
+        primaryButtonGroup.add(squaredButton);
+        primaryButtonGroup.add(toThePowerOfButton);
+        primaryButtonGroup.add(logButton);
+        primaryButtonGroup.add(naturalLogButton);
+    }
+    
+    private void setSecondaryButtonGroup(){
+        secondaryButtonGroup.add(inverseSineButton);
+        secondaryButtonGroup.add(inverseCosineButton);
+        secondaryButtonGroup.add(inverseTangentButton);
+        secondaryButtonGroup.add(squaredButton);
+        secondaryButtonGroup.add(factorialButton);
+        secondaryButtonGroup.add(tenToThePowerOfButton);
+        secondaryButtonGroup.add(eToThePowerOfButton);
+    }
+    
+    private void hideButton(Button button) {
+        button.setVisible(false);
+        button.setDisable(true);
+    }
+    
+    private void showButton(Button button){
+        button.setVisible(true);
+        button.setDisable(false);
     }
     
     private boolean lastIsOperator() {

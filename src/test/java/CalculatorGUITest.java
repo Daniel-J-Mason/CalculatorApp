@@ -211,9 +211,9 @@ public class CalculatorGUITest {
             buttonToInput.put("tangentButton", "tan");
         }
         
-        for (String element : buttonToInput.keySet()) {
-            outputPairs.add(Arguments.of(element, buttonToInput.get(element)));
-        }
+        buttonToInput.
+                keySet().
+                forEach(element -> outputPairs.add(Arguments.of(element, buttonToInput.get(element))));
         
         return outputPairs.stream();
     }
@@ -228,9 +228,8 @@ public class CalculatorGUITest {
             buttonToInput.put("inverseTangentButton", "atan");
         }
         
-        for (String element : buttonToInput.keySet()) {
-            outputPairs.add(Arguments.of(element, buttonToInput.get(element)));
-        }
+        buttonToInput.keySet()
+                .forEach(element -> outputPairs.add(Arguments.of(element, buttonToInput.get(element))));
         
         return outputPairs.stream();
     }
